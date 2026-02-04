@@ -1,0 +1,60 @@
+{
+  "roles": [
+    {
+      "name": "Data Analyst",
+      "description": "Analyze business data to generate insights.",
+      "skills": [
+        "SQL",
+        "Python",
+        "Statistics",
+        "Data Visualization",
+        "Excel",
+        "Dashboarding",
+        "Data Cleaning",
+        "Storytelling"
+      ]
+    },
+    {
+      "name": "Machine Learning Engineer",
+      "description": "Build and deploy ML models into production.",
+      "skills": [
+        "Python",
+        "Machine Learning",
+        "Model Evaluation",
+        "Feature Engineering",
+        "MLOps",
+        "Deep Learning",
+        "APIs",
+        "Cloud Platforms"
+      ]
+    },
+    {
+      "name": "Frontend Developer",
+      "description": "Create responsive user interfaces.",
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Accessibility",
+        "React",
+        "UI Design",
+        "Testing",
+        "Performance Optimization"
+      ]
+    },
+    {
+      "name": "Cybersecurity Analyst",
+      "description": "Protect systems and investigate security issues.",
+      "skills": [
+        "Network Security",
+        "Threat Modeling",
+        "Incident Response",
+        "SIEM",
+        "Vulnerability Assessment",
+        "Linux",
+        "Security Tools",
+        "Compliance"
+      ]
+    }
+  ]
+}
