@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume Skill Gap Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">AI Resume Intelligence</p>
+          <h1>Bridge your skill gaps with a personalized learning roadmap.</h1>
+          <p class="subtitle">
+            Paste a resume, select a target role, and receive NLP-driven matching, gaps,
+            and a study plan powered by secure, in-memory analysis.
+          </p>
+        </div>
+        <div class="card security">
+          <h2>Secure by design</h2>
+          <ul>
+            <li>No uploads required — analysis runs on text only.</li>
+            <li>Inputs are sanitized and never stored.</li>
+            <li>Length limits protect data handling.</li>
+          </ul>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="card">
+          <h2>Resume + Target Role</h2>
+          <form id="analysis-form">
+            <label for="role">Target role</label>
+            <select id="role" name="role" required>
+              <option value="" disabled selected>Select a role</option>
+              {% for role in roles %}
+              <option value="{{ role.name }}">{{ role.name }}</option>
+              {% endfor %}
+            </select>
+
+            <label for="resume">Paste resume content</label>
+            <textarea
+              id="resume"
+              name="resume"
+              rows="10"
+              placeholder="Summaries, projects, skills, internships..."
+              required
+            ></textarea>
+            <button type="submit">Analyze Resume</button>
+            <p class="hint">We only process up to 8,000 characters per request.</p>
+          </form>
+        </section>
+
+        <section class="card results">
+          <h2>Analysis Results</h2>
+          <div id="results-empty" class="empty-state">
+            <p>Results will appear here after analysis.</p>
+          </div>
+          <div id="results" class="hidden">
+            <div class="metrics">
+              <div>
+                <p class="metric-label">Role match score</p>
+                <p class="metric-value" id="similarity">--</p>
+              </div>
+              <div>
+                <p class="metric-label">Matched skills</p>
+                <p class="metric-value" id="matched-count">--</p>
+              </div>
+            </div>
+
+            <div class="lists">
+              <div>
+                <h3>Matched Skills</h3>
+                <ul id="matched-skills"></ul>
+              </div>
+              <div>
+                <h3>Skill Gaps</h3>
+                <ul id="missing-skills"></ul>
+              </div>
+            </div>
+
+            <div>
+              <h3>Personalized Learning Roadmap</h3>
+              <ol id="roadmap"></ol>
+            </div>
+          </div>
+          <div id="error" class="error hidden"></div>
+        </section>
+      </main>
+
+      <section class="card callout">
+        <h2>How the model works</h2>
+        <div class="callout-grid">
+          <div>
+            <h3>NLP Matching</h3>
+            <p>
+              We use TF-IDF vectors to compare your resume language with curated role skill
+              profiles and generate a similarity score.
+            </p>
+          </div>
+          <div>
+            <h3>Skill Gap Detection</h3>
+            <p>
+              Skill keywords are extracted and compared against the role profile to
+              spotlight missing competencies.
+            </p>
+          </div>
+          <div>
+            <h3>ML Roadmap</h3>
+            <p>
+              A learning plan is generated from the missing skills to help you prioritize
+              next steps.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>
